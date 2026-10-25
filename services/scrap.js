@@ -8,13 +8,6 @@ const formatDate = (date, format) => {
   return date.toLocaleString('en-GB', format).replace(',', '').split(' ').join('-');
 };
 
-const parseDate = dateStr => {
-  const [day, month] = dateStr.split('-');
-  const monthIndex = new Date(Date.parse(`${month} 1, 2023`)).getMonth();
-  const year = new Date().getFullYear();
-  return new Date(year, monthIndex, day).getTime();
-};
-
 const isDateInRange = (openDate, closeDate) => {
   const parseDate = (dateStr) => {
     const match = dateStr.match(/^(\d{1,2}-[A-Za-z]{3})/);
